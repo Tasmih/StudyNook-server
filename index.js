@@ -52,7 +52,7 @@ app.get('/room',async(req,res)=>{
     })
 
     app.patch("/room/:id",async(req,res)=>{
-      const {id} = req.params
+      const {id} = req.params;
       const updatedData= req.body
       
       const result =await roomCollection.updateOne(
@@ -62,6 +62,15 @@ app.get('/room',async(req,res)=>{
       res.json(result)
 
     } )
+
+    app.delete('/room/:id', async(req,res)=>{
+    const {id} = req.params;
+    const result = await roomCollection.deleteOne({_id: new ObjectId(id)})
+    res.json(result)
+
+    })
+
+
 
     
     await client.db("admin").command({ ping: 1 });
