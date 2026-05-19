@@ -26,8 +26,8 @@ async function run() {
     
     await client.connect();
     const db = client.db("studynook")
-
     const roomCollection = db.collection("rooms")
+    
 //  get rooms from database
 app.get('/room',async(req,res)=>{
   const result =await roomCollection.find().toArray()
@@ -42,6 +42,14 @@ app.get('/room',async(req,res)=>{
       
 
     })
+ app.get('/featured', async (req, res) => {
+  const result = await roomCollection
+    .find()
+    .sort({ _id: -1 })
+    .limit(6)
+    .toArray();
+  res.json(result);
+});
 
     //rooms details
     app.get('/room/:id',async(req,res)=>{
