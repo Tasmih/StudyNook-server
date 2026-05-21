@@ -255,14 +255,14 @@ app.patch("/bookings/:id/cancel", async (req, res) => {
 
     await roomCollection.updateOne(
       { _id: new ObjectId(booking.roomId) },
-      { $inc: { bookingCount: -1 } }
-    );
+//       { $inc: { bookingCount: -1 } }
+//     );
 
-    res.send({ message: "Booking cancelled successfully" });
-  } catch (error) {
-    res.status(500).send({ message: "Failed to cancel booking" });
-  }
-});
+//     res.send({ message: "Booking cancelled successfully" });
+//   } catch (error) {
+//     res.status(500).send({ message: "Failed to cancel booking" });
+//   }
+// });
 
     await client.db("admin").command({ ping: 1 });
     console.log("MongoDB connected successfully!");
