@@ -54,7 +54,7 @@ const verifyToken = async (req, res, next) => {
       email: payload.email,
     };
 
-    next();
+    
   } catch (error) {
     console.log("jwt error:", error.message);
     return res.status(403).json({ message: "forbidden" });
