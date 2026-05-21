@@ -51,7 +51,7 @@ const verifyToken = async (req, res, next) => {
 
     req.user = {
       id: payload.sub,
-      email: payload.
+      email: payload.email,
     };
 
     next();
