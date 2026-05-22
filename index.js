@@ -28,7 +28,7 @@ const client = new MongoClient(uri, {
 
 // jwks setup
 const JWKS = createRemoteJWKSet(
-  new URL("http://localhost:3000/api/auth/jwks")
+  new URL(`${process.env.CLIENT_URL}/api/auth/jwks`)
 );
 
 // token verify middleware
@@ -341,3 +341,4 @@ app.get("/", (req, res) => {
 app.listen(PORT, () => {
   console.log(`server running on port ${PORT}`);
 });
+module.exports = app;
