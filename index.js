@@ -62,7 +62,7 @@ const verifyToken = async (req, res, next) => {
 };
 async function run() {
   try {
-    await client.connect();
+    //await client.connect();
 
     const db = client.db("studynook");
 
@@ -325,7 +325,7 @@ async function run() {
       }
     });
 
-    await client.db("admin").command({ ping: 1 });
+   // await client.db("admin").command({ ping: 1 });
     console.log("mongodb connected successfully!");
   } finally {
     // keep connection alive
